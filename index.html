@@ -6,10 +6,29 @@
   <link href="knjiznice/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {padding-top: 70px;}
+    
+    #podatki * {
+      display:inline-block;
+      font-size:16px;
+    }
+    
+    .axis {
+  	  font: 10px sans-serif;
+  	}
+  
+  	.axis path,
+  	.axis line {
+  	  fill: none;
+  	  stroke: #000;
+  	  shape-rendering: crispEdges;
+  	}
   </style>
   <script src="knjiznice/js/jquery-2.2.3.min.js"></script>
   <script src="knjiznice/js/bootstrap.min.js"></script>
   <script src="knjiznice/js/koda.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 
@@ -22,14 +41,14 @@
           <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
         </button>
         <!-- ZAČETEK: Ime vaše aplikacije -->
-        <a class="navbar-brand" href="index.html">{ime vaše aplikacije}</a>
+        <a class="navbar-brand" href="index.html">Priporočila jedi</a>
         <!-- KONEC: Ime vaše aplikacije -->
       </div>
       <div class="collapse navbar-collapse" id="menujska-vrstica">
         <ul class="nav navbar-nav">
           <li><a href="opis.html">Opis ideje</a></li>
           <li><a href="nacrt.html">Načrt informacijske rešitve</a></li>
-          <li><a href="#">Generiranje podatkov</a></li>
+          <li><a href="#" onclick="generirajPodatke(1);generirajPodatke(2);generirajPodatke(3); $('#sporocilo').html('Generirani so bili podatki, njihovi EhrID-ji pa so:<br>'); $('#sporocilo').dialog({modal: true, buttons: { OK: function() {$(this).dialog('close');}}, title: 'Generirani podatki'});">Generiranje podatkov</a></li>
         </ul>
       </div>
     </div>
@@ -40,7 +59,56 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <p class="lead"><strong>TO-DO</strong>: Na tem mestu implementirajte vašo aplikacijo.</p>
+        <p class="lead">
+          <div id="sporocilo"></div>
+          <div style="text-align:left;">
+            <h3>Izbira EHR zapisa:</h3>
+            <div style="width:20%; display:inline-block;">
+              <p>Izbira prednastavljenih</p>
+              <select class="form-control input-sm" id="izbiraOsebe">
+                <option value="0"></option>
+                <option value="1">Lojze</option>
+                <option value="2">Matej</option>
+                <option value="3">Teja</option>
+              </select>
+            </div>
+            <div style="width:70%; padding-bottom:10px; padding-left:15px; display:inline-block;">
+              <p>Prosti vnos EHR ID-ja</p>
+              <input id="ehrIdInput" type="text" class="form-control input-mini" placeholder="EhrId">
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary btn-xs" onclick="preberiEHRodBolnika()" style="width:150px; height:30px;">Preberi podatke</button>
+          </div>
+          <div style="display:none;" id="podatkiContainer">
+            <div style="padding-top:30px; text-align:left; display:inline-block; width:60%">
+              <p id="name" style="font-size:30px; font-weight:bold;"></p>
+              <div style="padding-left:7%;" id="podatki">
+                <strong style="font-size:19px;">Starost:&nbsp;&nbsp;</strong><p style="padding-right:70px; font-size:19px;" id="age"></p>
+                <strong style="font-size:19px;">Spol:&nbsp;&nbsp;</strong><p style="font-size:19px;" id="gender"></p>
+              </div>
+            </div>
+            <div  style="display:inline-block; width:39%;">
+              <strong style="font-size:14px;">Priporočen dnevni vnos:&nbsp;&nbsp;</strong>
+              <strong style="font-size:24px;" id="dailyIntake"></strong>
+            </div>
+            <hr>
+            <div id="weightGraph">
+              
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary btn-xs" onclick="predlagajRecepte();" style="width:150px; height:30px;">Predlagaj recepte</button>
+            <div id="recipes" style="font-size:12px; display:none;">
+              <h2>Zajtrk</h2>
+              <div id="breakfast"></div>
+              <h2>Kosilo</h2>
+              <div id="lunch"></div>
+              <h2>Večerja</h2>
+              <div id="dinner"></div>
+              <h2>Prigrizki</h2>
+              <div id="snacks"></div>
+            </div>
+          </div>
+        </p>
       </div>
     </div>
   </div>
