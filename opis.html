@@ -46,8 +46,9 @@
           <div class="panel-body">
             <!-- ZAČETEK: Opis ideje, ki jo aplikacija podpira -->
             <p>
-              Aplikacija je namenjena vsem, ki bi želeli živeti bolj zdravo in vživati priporočeno količino hrane, pa tudi tiste, ki nimajo idej kaj bi skuhali za npr. kosilo. Aplikacija na podlagi zdravstveih podatkov, kot je telesna teža, višina in starost izračuna priporočeni dnevni vnos kalorija in na podlagi teh predlaga različne recepte za tri glavne obroke (zajtrk, kosilo, večerja).
-              <!--<strong>TO-DO</strong>: Na tem mestu je potrebno dodati <strong>osnovni opis ideje rešitve</strong> (kakšen je osnovni SCENARIJ UPORABE, KDO je ciljna publika, za kakšen NAMEN se aplikacija uporablja).</p><p class="text-muted">Opis naj ne bo daljši od 200 besed.-->
+              Uporabnik naj bi aplikacijo uporabljal, da bi pridobil priporočen dnevni vnos hrane in na podlagi tega nekaj receptov, ter sledil svojemu stanju.<br>
+              Aplikacija je namenjena vsem, ki bi želeli živeti bolj zdravo in vživati priporočeno količino hrane, pa tudi tiste, ki nimajo idej kaj bi skuhali. <br>
+              Aplikacija na podlagi zdravstveih podatkov, kot je telesna teža, višina in starost izračuna priporočeni dnevni vnos kalorij in na podlagi teh predlaga različne recepte za glavne obroke (zajtrk, kosilo, večerja).<br>
             </p>
             <!-- KONEC: Opis ideje, ki jo aplikacija podpira -->
           </div>
@@ -58,7 +59,8 @@
           </div>
           <div class="panel-body">
             <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
-            <p><strong>TO-DO</strong>: Na tem mestu je navesti zunanji vir podatkov (URL naslov), na kakšen način ste ga uporabili (neposredni API klic, uvožena statična datoteka ipd.) in kaj je bil namen uporabe (kako se vključuje v osnovno idejo aplikacije).</p>
+            <p>Zunanji API je na voljo na naslovu <a href="https://developer.edamam.com/">https://developer.edamam.com/</a><br>
+            Api se kliče direktno ob pritisku na gumb "Predlagaj recepte" s GET requestom. Klic api-ja vrne seznam receptov glede na podane parametre, v tem primeru sta določeni le zgornja in spodnja meja kalorij obroka. Vrnjeni podatki se nato uporabijo za prikaz receptov za različne obroke.</p>
             <!-- KONEC: Uporabljeni zunanji viri podatkov -->
           </div>
         </div>
@@ -68,7 +70,7 @@
           </div>
           <div class="panel-body">
             <!-- ZAČETEK: Master/detail načrtovalski vzorec -->
-            <p><strong>TO-DO</strong>: Na tem mestu morate navesti uporabljen master/detail načrtovalski vzorec in na kakšen način ga nameravate uporabiti.</p>
+            <p>Master/detail vzorec sem uporabil pri prikazu sestavin za posamezen recept (po kliku na "Predlagaj recepte"). Detaili recepta se prikažejo ob kliku na sliko le tega in ponovno skrijejo ob ponovnem kliku.</p>
             <!-- KONEC: Master/detail načrtovalski vzorec -->
           </div>
         </div>
@@ -78,7 +80,7 @@
           </div>
           <div class="panel-body">
             <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
-            <p><strong>TO-DO</strong>: Na tem mestu je potrebno navesti uporabljeno tehniko vizualizacije podatkov (za pomoč lahko uporabite primer iz <a href="https://github.com/mbostock/d3/wiki/Gallery" target="_blank">D3.js galerije</a>) in zakaj je bila ta tehnika izbrana.</p>
+            <p> Za vizualizacijo podatkov sem uporabil preprost stolpčasti graf iz knjičnjice D3.js. Ta graf sem izbral zaradi dobre preglednosti nad meritvami vitalnih znakov, saj tako lahko na hitro vidimo kako se le ti spreminjajo skozi čas.</p>
             <!-- KONEC: Uporabljeni zunanji viri podatkov -->
           </div>
         </div>

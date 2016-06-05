@@ -35,36 +35,15 @@ function getSessionId() {
  
 var ehrIDs = ["","25baab93-e118-4710-9f2c-b53635dc4965","65014d0f-3c5c-49a7-b1da-894c8037865d","5db5fba4-1df8-4b2f-943d-ab90d1e5d48e"];
 
-var pod = [["empty"],
-    ["Lojze", "Kovač", "1994-10-15T13:14", "MALE"], 
-    ["Matej", "Koren", "1970-08-26T00:00", "MALE"], 
-    ["Teja", "Novak", "1998-11-09T00:00", "FEMALE"]
-];
 
-var podMeritve = [
-    ["2016-05-20T07:20", 180, 80, 35, 120, 90, 97, "Metka"],
-    ["2016-03-01T20:10", 170, 100, 37, 122, 95, 99, "Liza"],
-    ["2016-08-05T12:45", 185, 75, 36, 110, 93, 98, "Matic"],
-    ["2016-04-20T07:20", 181, 81, 35, 120, 90, 97, "Metka"],
-    ["2016-01-01T20:10", 169, 97, 37, 122, 95, 99, "Liza"],
-    ["2016-08-05T12:45", 185, 72, 36, 110, 93, 98, "Matic"],
-    ["2016-04-25T07:20", 185, 79, 35, 120, 90, 97, "Metka"],
-    ["2016-01-10T20:10", 172, 90, 37, 122, 95, 99, "Liza"],
-    ["2016-08-08T12:45", 190, 75, 36, 110, 93, 98, "Matic"],
-    ["2016-08-25T07:20", 189, 78, 35, 120, 90, 97, "Metka"],
-    ["2016-09-10T20:10", 170, 89, 37, 122, 95, 99, "Liza"],
-    ["2016-10-08T12:45", 200, 76, 36, 110, 93, 98, "Matic"],
-    ["2016-08-11T07:20", 190, 82, 35, 120, 90, 97, "Metka"],
-    ["2016-09-16T20:10", 175, 86, 37, 122, 95, 99, "Liza"],
-    ["2016-10-20T12:45", 198, 78, 36, 110, 93, 98, "Matic"],
-    ["2016-08-27T07:20", 190, 80, 35, 120, 90, 97, "Metka"],
-    ["2016-09-16T20:10", 168, 83, 37, 122, 95, 99, "Liza"],
-    ["2016-10-09T12:45", 205, 80, 36, 110, 93, 98, "Matic"],
-    ["2016-12-25T07:20", 190, 81, 35, 120, 90, 97, "Metka"],
-    ["2016-02-10T20:10", 171, 88, 37, 122, 95, 99, "Liza"]];
+
+var pod = [["empty"],
+        ["Lojze", "Kovač", "1994-10-15T13:14", "MALE"], 
+        ["Matej", "Koren", "1970-08-26T00:00", "MALE"], 
+        ["Teja", "Novak", "1998-11-09T00:00", "FEMALE"]
+    ];
  
 function generirajPodatke(stPacienta) {
-    //ehrId = "";
     var sessionId = getSessionId();
 
     var ime = pod[stPacienta][0];
@@ -115,8 +94,30 @@ function generirajPodatke(stPacienta) {
 
 }
 
+var podMeritve = [
+    ["2016-05-20T07:20", 180, 80, 35, 120, 90, 97, "Metka"],
+    ["2016-03-01T20:10", 170, 100, 37, 122, 95, 99, "Liza"],
+    ["2016-08-05T12:45", 185, 75, 36, 110, 93, 98, "Matic"],
+    ["2016-04-20T07:20", 181, 81, 35, 120, 90, 97, "Metka"],
+    ["2016-01-01T20:10", 169, 97, 37, 122, 95, 99, "Liza"],
+    ["2016-08-05T12:45", 185, 72, 36, 110, 93, 98, "Matic"],
+    ["2016-04-25T07:20", 185, 79, 35, 120, 90, 97, "Metka"],
+    ["2016-01-10T20:10", 172, 90, 37, 122, 95, 99, "Liza"],
+    ["2016-08-08T12:45", 190, 75, 36, 110, 93, 98, "Matic"],
+    ["2016-08-25T07:20", 189, 78, 35, 120, 90, 97, "Metka"],
+    ["2016-09-10T20:10", 170, 89, 37, 122, 95, 99, "Liza"],
+    ["2016-10-08T12:45", 200, 76, 36, 110, 93, 98, "Matic"],
+    ["2016-08-11T07:20", 190, 82, 35, 120, 90, 97, "Metka"],
+    ["2016-09-16T20:10", 175, 86, 37, 122, 95, 99, "Liza"],
+    ["2016-10-20T12:45", 198, 78, 36, 110, 93, 98, "Matic"],
+    ["2016-08-27T07:20", 190, 80, 35, 120, 90, 97, "Metka"],
+    ["2016-09-16T20:10", 168, 83, 37, 122, 95, 99, "Liza"],
+    ["2016-10-09T12:45", 205, 80, 36, 110, 93, 98, "Matic"],
+    ["2016-12-25T07:20", 190, 81, 35, 120, 90, 97, "Metka"],
+    ["2016-02-10T20:10", 171, 88, 37, 122, 95, 99, "Liza"]];
+
 function addData(stPacienta, ehrId){
-    var sessionId = getSessionId();
+  var sessionId = getSessionId();
 
 	var datumInUra = podMeritve[stPacienta][0];
 	var telesnaVisina = podMeritve[stPacienta][1];
@@ -181,7 +182,37 @@ function calculateDailyIntake(gender, age, height, weight){
 var dailyIntake = 0;
 
 
+var htmlContentTemplate = `<div style="padding-top:30px; text-align:left; display:inline-block; width:60%">
+              <p id="name" style="font-size:30px; font-weight:bold;"></p>
+              <div style="padding-left:7%;" id="podatki">
+                <strong style="font-size:19px;">Starost:&nbsp;&nbsp;</strong><p style="padding-right:70px; font-size:19px;" id="age"></p>
+                <strong style="font-size:19px;">Spol:&nbsp;&nbsp;</strong><p style="font-size:19px;" id="gender"></p>
+              </div>
+            </div>
+            <div  style="display:inline-block; width:39%;">
+              <strong style="font-size:14px;">Priporočen dnevni vnos:&nbsp;&nbsp;</strong>
+              <strong style="font-size:24px;" id="dailyIntake"></strong>
+            </div>
+            <hr>
+            <div id="weightGraph">
+              
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary btn-xs" onclick="predlagajRecepte();" style="width:150px; height:30px;">Predlagaj recepte</button>
+            <div id="recipes" style="font-size:12px; display:none;">
+              <h2>Zajtrk</h2>
+              <div id="breakfast"></div>
+              <h2>Kosilo</h2>
+              <div id="lunch"></div>
+              <h2>Večerja</h2>
+              <div id="dinner"></div>
+              <h2>Prigrizki</h2>
+              <div id="snacks"></div>
+            </div>`;
+
 function preberiEHRodBolnika() {
+    $('#podatkiContainer').html(htmlContentTemplate);
+    
 	var sessionId = getSessionId();
 
 	var ehrId = $("#ehrIdInput").val();
